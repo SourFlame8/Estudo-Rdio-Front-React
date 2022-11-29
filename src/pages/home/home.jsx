@@ -12,6 +12,12 @@ function Home() {
                     Ver Musicas compradas
                 </NavLink>
             </Button>
+            <br />
+            <Button>
+                <NavLink exact to="/Pendentes" style={{ "color": "white", "textDecoration": "none" }}>
+                    Ver Musicas Pendentes
+                </NavLink>
+            </Button>
         </Body>
     )
 }
