@@ -1,17 +1,17 @@
+import moment from "moment/moment";
 import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import api from "../../services/api";
 import { Body, Button, Table } from "./style";
 
 function Compradas() {
-  const [teste, setTeste] = useState("");
+  const [musica, setMusica] = useState([]);
 
   useEffect(() => {
     api.get("/TesteMusica").then((response) => {
-      setTeste(response?.data);
+      setMusica(response?.data?.response?.compradas);
     });
-    console.log(teste);
-  }, [teste]);
+  }, [musica]);
 
   return (
     <Body>
@@ -28,22 +28,16 @@ function Compradas() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Black</td>
-            <td>Pearl Jam</td>
-            <td>Ten</td>
-            <td>Dia</td>
-            <td>Dia</td>
-            <td>Gravadora</td>
-          </tr>
-          <tr>
-            <td>{teste.nome}</td>
-            <td>{teste.artista}</td>
-            <td>{teste.album}</td>
-            <td>{teste.lincenca}</td>
-            <td>{teste.vencimento}</td>
-            <td>{teste.gravadora}</td>
-          </tr>
+          {musica?.map((d, i) => (
+            <tr key={i}>
+              <td>{d?.nome}</td>
+              <td>{d?.artista}</td>
+              <td>{d?.album}</td>
+              <td>{moment(d?.lincenca_comprada).format("DD - MM - YYYY")}</td>
+              <td>{moment(d?.venc_licenca).format("DD - MM - YYYY")}</td>
+              <td>{d?.gravadora}</td>
+            </tr>
+          ))}
         </tbody>
       </Table>
       <Button>
