@@ -1,8 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
+import api from "../../services/api";
 import { Body, Button, Table } from "./style";
 
 function Compradas() {
+  const [teste, setTeste] = useState("");
+
+  useEffect(() => {
+    api.get("/TesteMusica").then((response) => {
+      setTeste(response?.data);
+    });
+    console.log(teste);
+  }, [teste]);
+
   return (
     <Body>
       <h1>Compradas</h1>
@@ -12,7 +22,7 @@ function Compradas() {
             <th>Nome</th>
             <th>Artista</th>
             <th>Album</th>
-            <th>Lincença Comprada</th>
+            <th>Licença Comprada</th>
             <th>Vencimento da Licença</th>
             <th>Gravadora</th>
           </tr>
@@ -25,6 +35,14 @@ function Compradas() {
             <td>Dia</td>
             <td>Dia</td>
             <td>Gravadora</td>
+          </tr>
+          <tr>
+            <td>{teste.nome}</td>
+            <td>{teste.artista}</td>
+            <td>{teste.album}</td>
+            <td>{teste.lincenca}</td>
+            <td>{teste.vencimento}</td>
+            <td>{teste.gravadora}</td>
           </tr>
         </tbody>
       </Table>

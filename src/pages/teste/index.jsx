@@ -8,7 +8,7 @@ function Teste() {
   const [teste, setTeste] = useState("")
 
   useEffect(() => {
-    api.get("/").then((response) => {setTeste(response?.data.sucess)});
+    api.get("/jsonTeste").then((response) => {setTeste(response?.data.sucess)});
     console.log(teste);
   }, [teste]);
 
