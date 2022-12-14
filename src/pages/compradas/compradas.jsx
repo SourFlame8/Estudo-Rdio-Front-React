@@ -1,4 +1,4 @@
-import moment from "moment/moment";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import api from "../../services/api";
@@ -8,7 +8,7 @@ function Compradas() {
   const [musica, setMusica] = useState([]);
 
   useEffect(() => {
-    api.get("/TesteMusica").then((response) => {
+    api.get("/Compradas").then((response) => {
       setMusica(response?.data?.response?.compradas);
     });
   }, [musica]);
