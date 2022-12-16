@@ -8,7 +8,8 @@ import {
   TableContainer,
   Text,
   Button,
-} from '@chakra-ui/react'
+  Stack,
+} from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
@@ -27,7 +28,11 @@ function Compradas() {
   return (
     <Body>
       <Text fontSize={30}>Compradas</Text>
-      <TableContainer border={"1px solid black"} borderRadius={"10px"} marginBottom={".5rem"}>
+      <TableContainer
+        border={"1px solid black"}
+        borderRadius={"10px"}
+        marginBottom={".5rem"}
+      >
         <Table variant="simple">
           <Thead>
             <Tr>
@@ -53,15 +58,21 @@ function Compradas() {
           </Tbody>
         </Table>
       </TableContainer>
-      <Button colorScheme={'blue'} size={'lg'}>
-        <NavLink
-          exact
-          to="/"
-          style={{ color: "white", textDecoration: "none" }}
+      <Stack>
+        <Button
+          rightIcon={<ArrowForwardIcon />}
+          colorScheme={"blue"}
+          size={"lg"}
         >
-          Voltar
-        </NavLink>
-      </Button>
+          <NavLink
+            exact
+            to="/"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Voltar
+          </NavLink>
+        </Button>
+      </Stack>
     </Body>
   );
 }
