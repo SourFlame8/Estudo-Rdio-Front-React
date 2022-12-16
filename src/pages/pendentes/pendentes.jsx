@@ -1,8 +1,19 @@
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  TableContainer,
+  Text,
+  Button,
+} from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
-import { Body, Table } from "./style";
+import { Body } from "./style";
 import { NavLink } from "react-router-dom";
 import api from "../../services/api";
-import { Button } from "@chakra-ui/react";
+import "@fontsource/montserrat";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
@@ -15,30 +26,37 @@ function Pendentes() {
 
   return (
     <Body>
-      <h1>Pendentes</h1>
-      <Table>
-        <thead>
-          <tr>
-            <th>Nome</th>
-            <th>Artista</th>
-            <th>Album</th>
-            <th>Gravadora</th>
-            <th>Situação Compra</th>
-          </tr>
-        </thead>
-        <tbody>
-          {musica?.map((d, i) => (
-            <tr key={i}>
-              <td>{d?.nome}</td>
-              <td>{d?.artista}</td>
-              <td>{d?.album}</td>
-              <td>{d?.gravadora}</td>
-              <td>{d?.situacao_compra}</td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
-      <Button colorScheme={'blue'} size={'lg'}>
+      <Text fontFamily={"Montserrat"} fontSize={"30"}>Pendentes</Text>
+      <TableContainer
+        border={"1px solid black"}
+        borderRadius={"10px"}
+        marginBottom={".5rem"}
+        fontFamily={"Montserrat"}
+      >
+        <Table variant="simple">
+          <Thead>
+            <Tr>
+              <Th>Nome</Th>
+              <Th>Artista</Th>
+              <Th>Album</Th>
+              <Th>Gravadora</Th>
+              <Th>Situação Compra</Th>
+            </Tr>
+          </Thead>
+          <Tbody>
+            {musica?.map((d, i) => (
+              <Tr key={i}>
+                <Td>{d?.nome}</Td>
+                <Td>{d?.artista}</Td>
+                <Td>{d?.album}</Td>
+                <Td>{d?.gravadora}</Td>
+                <Td>{d?.situacao_compra}</Td>
+              </Tr>
+            ))}
+          </Tbody>
+        </Table>
+      </TableContainer>
+      <Button colorScheme={"blue"} size={"lg"} fontFamily={"Montserrat"}>
         <NavLink
           exact
           to="/"

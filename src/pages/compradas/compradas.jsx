@@ -7,8 +7,7 @@ import {
   Td,
   TableContainer,
   Text,
-  Button,
-  Stack,
+  Button
 } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
@@ -58,9 +57,7 @@ function Compradas() {
           </Tbody>
         </Table>
       </TableContainer>
-      <Stack>
         <Button
-          rightIcon={<ArrowForwardIcon />}
           colorScheme={"blue"}
           size={"lg"}
         >
@@ -72,7 +69,6 @@ function Compradas() {
             Voltar
           </NavLink>
         </Button>
-      </Stack>
     </Body>
   );
 }

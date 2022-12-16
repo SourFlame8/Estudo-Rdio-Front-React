@@ -5,6 +5,7 @@ import Compradas from "./pages/compradas/compradas";
 import Home from "./pages/home/home";
 import Pendentes from "./pages/pendentes/pendentes";
 import Teste from "./pages/teste";
+// import theme from "./services/theme";
 
 function AppRoutes() {
   return (
