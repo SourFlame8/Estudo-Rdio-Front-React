@@ -1,19 +1,19 @@
 import React from 'react'
-import { Body, Button } from "./style"
+import { Body } from "./style"
 import { useNavigate, NavLink } from "react-router-dom";
+import { Button, Text } from '@chakra-ui/react';
 
 
 function Home() {
     return (
         <Body>
-            <h1>Pagina inicial</h1>
-            <Button>
+            <Text fontSize={30} marginBottom={".5rem"}>Pagina inicial</Text>
+            <Button colorScheme={'blue'} size={'lg'} marginBottom={"1rem"}>
                 <NavLink exact to="/Compradas" style={{ "color": "white", "textDecoration": "none" }}>
-                    Ver Musicas compradas
+                    Ver Musicas Compradas
                 </NavLink>
             </Button>
-            <br />
-            <Button>
+            <Button colorScheme={'blue'} size={'lg'}>
                 <NavLink exact to="/Pendentes" style={{ "color": "white", "textDecoration": "none" }}>
                     Ver Musicas Pendentes
                 </NavLink>

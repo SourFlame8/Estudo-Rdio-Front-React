@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
-import { Body, Button, Table } from "./style";
+import { Body, Table } from "./style";
 import { NavLink } from "react-router-dom";
 import api from "../../services/api";
+import { Button } from "@chakra-ui/react";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
@@ -37,7 +38,7 @@ function Pendentes() {
           ))}
         </tbody>
       </Table>
-      <Button>
+      <Button colorScheme={'blue'} size={'lg'}>
         <NavLink
           exact
           to="/"

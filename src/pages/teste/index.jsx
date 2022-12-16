@@ -1,4 +1,5 @@
 import {
+  Box,
   Table,
   TableCaption,
   TableContainer,
@@ -16,6 +17,7 @@ import api from "../../services/api";
 
 function Teste() {
   return (
+    <Box maxW="960px" mx="auto">
       <TableContainer>
         <Table variant="simple">
           <TableCaption>Imperial to metric conversion factors</TableCaption>
@@ -52,6 +54,7 @@ function Teste() {
           </Tfoot>
         </Table>
       </TableContainer>
+    </Box>
   );
 }
 

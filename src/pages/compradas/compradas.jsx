@@ -1,17 +1,19 @@
 import {
   Table,
-  TableContainer,
-  Tbody,
-  Td,
-  Th,
   Thead,
+  Tbody,
   Tr,
-} from "@chakra-ui/react";
+  Th,
+  Td,
+  TableContainer,
+  Text,
+  Button,
+} from '@chakra-ui/react'
 import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import api from "../../services/api";
-import { Body, Button } from "./style";
+import { Body } from "./style";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
@@ -24,8 +26,8 @@ function Compradas() {
 
   return (
     <Body>
-      <h1>Compradas</h1>
-      <TableContainer>
+      <Text fontSize={30}>Compradas</Text>
+      <TableContainer border={"1px solid black"} borderRadius={"10px"} marginBottom={".5rem"}>
         <Table variant="simple">
           <Thead>
             <Tr>
@@ -51,7 +53,7 @@ function Compradas() {
           </Tbody>
         </Table>
       </TableContainer>
-      <Button>
+      <Button colorScheme={'blue'} size={'lg'}>
         <NavLink
           exact
           to="/"

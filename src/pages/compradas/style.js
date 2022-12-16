@@ -17,7 +17,7 @@ export const Button = styled.button`
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 18px;
   transition-duration: 0.4s;
   border-radius: 8px;
   cursor: pointer;
@@ -27,16 +27,5 @@ export const Button = styled.button`
     color: white;
     box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
       0 17px 50px 0 rgba(0, 0, 0, 0.19);
-  }
-`
-
-export const Table = styled.table`
-  border: 1px solid;
-  margin-bottom: 1rem;
-
-  & th, td {
-    border: 1px solid;
-    padding: 15px;
-    text-align: left;
   }
 `
