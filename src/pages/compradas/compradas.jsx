@@ -14,6 +14,7 @@ import React, { useEffect, useState } from "react";
 import { useNavigate, NavLink } from "react-router-dom";
 import api from "../../services/api";
 import { Body } from "./style";
+import "@fontsource/montserrat";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
@@ -26,11 +27,12 @@ function Compradas() {
 
   return (
     <Body>
-      <Text fontSize={30}>Compradas</Text>
+      <Text fontFamily={"Montserrat"} fontSize={30}>Compradas</Text>
       <TableContainer
         border={"1px solid black"}
         borderRadius={"10px"}
         marginBottom={".5rem"}
+        fontFamily={"Montserrat"}
       >
         <Table variant="simple">
           <Thead>
@@ -60,6 +62,7 @@ function Compradas() {
         <Button
           colorScheme={"blue"}
           size={"lg"}
+          fontFamily={"Montserrat"}
         >
           <NavLink
             exact
