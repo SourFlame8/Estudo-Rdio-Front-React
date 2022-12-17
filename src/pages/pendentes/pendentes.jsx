@@ -14,6 +14,7 @@ import { Body } from "./style";
 import { NavLink } from "react-router-dom";
 import api from "../../services/api";
 import "@fontsource/montserrat";
+import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
@@ -26,7 +27,18 @@ function Pendentes() {
 
   return (
     <Body>
-      <Text fontFamily={"Montserrat"} fontSize={"30"}>Pendentes</Text>
+      <Text fontFamily={"Montserrat"} fontSize={"30"}>
+        Pendentes
+      </Text>
+      <Button
+        colorScheme={"blue"}
+        size={"lg"}
+        fontFamily={"Montserrat"}
+        leftIcon={<AddIcon />}
+        marginBottom={".5rem"}
+      >
+        Adicionar
+      </Button>
       <TableContainer
         border={"1px solid black"}
         borderRadius={"10px"}
@@ -41,6 +53,7 @@ function Pendentes() {
               <Th>Album</Th>
               <Th>Gravadora</Th>
               <Th>Situação Compra</Th>
+              <Th /><Th />
             </Tr>
           </Thead>
           <Tbody>
@@ -51,12 +64,19 @@ function Pendentes() {
                 <Td>{d?.album}</Td>
                 <Td>{d?.gravadora}</Td>
                 <Td>{d?.situacao_compra}</Td>
+                <Td><EditIcon /></Td>
+                <Td><DeleteIcon /></Td>
               </Tr>
             ))}
           </Tbody>
         </Table>
       </TableContainer>
-      <Button colorScheme={"blue"} size={"lg"} fontFamily={"Montserrat"}>
+      <Button
+        colorScheme={"blue"}
+        size={"lg"}
+        fontFamily={"Montserrat"}
+        leftIcon={<ArrowBackIcon />}
+      >
         <NavLink
           exact
           to="/"

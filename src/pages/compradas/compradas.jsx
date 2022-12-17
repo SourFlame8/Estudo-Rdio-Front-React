@@ -7,7 +7,7 @@ import {
   Td,
   TableContainer,
   Text,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
@@ -15,6 +15,7 @@ import { useNavigate, NavLink } from "react-router-dom";
 import api from "../../services/api";
 import { Body } from "./style";
 import "@fontsource/montserrat";
+import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
@@ -27,7 +28,18 @@ function Compradas() {
 
   return (
     <Body>
-      <Text fontFamily={"Montserrat"} fontSize={30}>Compradas</Text>
+      <Text fontFamily={"Montserrat"} fontSize={30}>
+        Compradas
+      </Text>
+      <Button
+        colorScheme={"blue"}
+        size={"lg"}
+        fontFamily={"Montserrat"}
+        leftIcon={<AddIcon />}
+        marginBottom={".5rem"}
+      >
+        Adicionar
+      </Button>
       <TableContainer
         border={"1px solid black"}
         borderRadius={"10px"}
@@ -43,6 +55,8 @@ function Compradas() {
               <Th>Licença Comprada</Th>
               <Th>Vencimento da Licença</Th>
               <Th>Gravadora</Th>
+              <Th />
+              <Th />
             </Tr>
           </Thead>
           <Tbody>
@@ -54,24 +68,31 @@ function Compradas() {
                 <Td>{moment(d?.lincenca_comprada).format("DD - MM - YYYY")}</Td>
                 <Td>{moment(d?.venc_licenca).format("DD - MM - YYYY")}</Td>
                 <Td>{d?.gravadora}</Td>
+                <Td>
+                  <EditIcon />
+                </Td>
+                <Td>
+                  <DeleteIcon />
+                </Td>
               </Tr>
             ))}
           </Tbody>
         </Table>
       </TableContainer>
-        <Button
-          colorScheme={"blue"}
-          size={"lg"}
-          fontFamily={"Montserrat"}
+      <Button
+        colorScheme={"blue"}
+        size={"lg"}
+        fontFamily={"Montserrat"}
+        leftIcon={<ArrowBackIcon />}
+      >
+        <NavLink
+          exact
+          to="/"
+          style={{ color: "white", textDecoration: "none" }}
         >
-          <NavLink
-            exact
-            to="/"
-            style={{ color: "white", textDecoration: "none" }}
-          >
-            Voltar
-          </NavLink>
-        </Button>
+          Voltar
+        </NavLink>
+      </Button>
     </Body>
   );
 }
