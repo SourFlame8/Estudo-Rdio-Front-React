@@ -4,7 +4,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Compradas from "./pages/compradas/compradas";
 import Home from "./pages/home/home";
 import Pendentes from "./pages/pendentes/pendentes";
-import Teste from "./pages/teste";
+import Teste from "./pages/teste/teste";
 // import theme from "./services/theme";
 
 function AppRoutes() {
