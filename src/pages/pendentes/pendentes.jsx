@@ -7,7 +7,7 @@ import {
   Td,
   TableContainer,
   Text,
-  Button
+  Button,
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { Body } from "./style";
@@ -26,6 +26,13 @@ function Pendentes() {
     });
   }, [musica]);
 
+  function remover(id) {
+    api
+      .delete(`/Pendentes/${id}`)
+      .then((response) => alert("Deletada com sucesso"))
+      .catch((error) => alert("Deu erro" + " " + error));
+  }
+
   return (
     <Body>
       <Text fontFamily={"Montserrat"} fontSize={"30"}>
@@ -41,6 +48,7 @@ function Pendentes() {
         <Table variant="simple">
           <Thead>
             <Tr>
+              <Th>Id</Th>
               <Th>Nome</Th>
               <Th>Artista</Th>
               <Th>Album</Th>
@@ -53,16 +61,21 @@ function Pendentes() {
           <Tbody>
             {musica?.map((d, i) => (
               <Tr key={i}>
+                <Td>{d?.id}</Td>
                 <Td>{d?.nome}</Td>
                 <Td>{d?.artista}</Td>
                 <Td>{d?.album}</Td>
                 <Td>{d?.gravadora}</Td>
                 <Td>{d?.situacao_compra}</Td>
                 <Td>
-                  <EditIcon />
+                  <Button>
+                    <EditIcon />
+                  </Button>
                 </Td>
                 <Td>
-                  <DeleteIcon />
+                  <Button onClick={() => remover(d.id)}>
+                    <DeleteIcon />
+                  </Button>
                 </Td>
               </Tr>
             ))}
