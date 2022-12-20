@@ -29,7 +29,7 @@ function Pendentes() {
   function remover(id) {
     api
       .delete(`/Pendentes/${id}`)
-      .then((response) => alert("Deletada com sucesso"))
+      .then((response) => alert(response.data.response.sucess))
       .catch((error) => alert("Deu erro" + " " + error));
   }
 

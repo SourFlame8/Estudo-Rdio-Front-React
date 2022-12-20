@@ -53,7 +53,7 @@ function ModalAdd() {
     } else {
       api
         .post(`/Pendentes`, { data })
-        .then((response) => alert("ENVIOU"))
+        .then((response) => alert(response.data.response.sucess))
         .catch((error) => alert("Deu erro" + " " + error));
     }
   }
