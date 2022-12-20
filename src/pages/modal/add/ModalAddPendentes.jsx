@@ -11,10 +11,11 @@ import {
   useDisclosure,
   Text,
   Input,
+  Select,
 } from "@chakra-ui/react";
 import React, { useState } from "react";
 import "@fontsource/montserrat";
-import api from "../../services/api";
+import api from "../../../services/api";
 
 function ModalAdd() {
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -22,6 +23,7 @@ function ModalAdd() {
   const [artista, setArtista] = useState("");
   const [album, setAlbum] = useState("");
   const [gravadora, setGravadora] = useState("");
+  const [situacaoCompra, setSituacaoCompra] = useState("");
 
   function enviar(e) {
     e.preventDefault();
@@ -31,14 +33,31 @@ function ModalAdd() {
       artista: artista,
       album: album,
       gravadora: gravadora,
+      situacaoCompra: situacaoCompra,
     };
-
-    api
-      .post(`/Pendentes`, { data })
-      .then((response) => alert("ENVIOU"))
-      .catch((error) => alert("Deu erro" + " " + error));
+    
+    if (data.nome === "") {
+      alert("Digite o nome da musica");
+    }
+    else if (data.artista === "") {
+      alert("Digite o nome do artista");
+    }
+    else if (data.album === "") {
+      alert("Digite o nome do album");
+    }
+    else if (data.gravadora === "") {
+      alert("Digite o nome da gravadora");
+    }
+    else if (data.situacaoCompra === "") {
+      alert("Selecione uma situação");
+    } else {
+      api
+        .post(`/Pendentes`, { data })
+        .then((response) => alert("ENVIOU"))
+        .catch((error) => alert("Deu erro" + " " + error));
+    }
   }
-  
+
   return (
     <>
       <Button
@@ -65,6 +84,7 @@ function ModalAdd() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Digite o nome da musica"
                 size="sm"
+                marginBottom={".5rem"}
               />
               <Text mb="8px" fontStyle={"Montserrat"}>
                 Artista:
@@ -75,6 +95,7 @@ function ModalAdd() {
                 onChange={(e) => setArtista(e.target.value)}
                 placeholder="Digite o artista da musica"
                 size="sm"
+                marginBottom={".5rem"}
               />
               <Text mb="8px" fontStyle={"Montserrat"}>
                 Album:
@@ -85,6 +106,7 @@ function ModalAdd() {
                 onChange={(e) => setAlbum(e.target.value)}
                 placeholder="Digite o album da musica"
                 size="sm"
+                marginBottom={".5rem"}
               />
               <Text mb="8px" fontStyle={"Montserrat"}>
                 Gravadora:
@@ -95,7 +117,21 @@ function ModalAdd() {
                 onChange={(e) => setGravadora(e.target.value)}
                 placeholder="Digite a gravadora da musica"
                 size="sm"
+                marginBottom={".5rem"}
               />
+              <Text mb="8px" fontStyle={"Montserrat"}>
+                Situação Compra:
+              </Text>
+              <Select
+                variant="outline"
+                placeholder="Selecione uma situação"
+                onChange={(e) => setSituacaoCompra(e.target.value)}
+                size="sm"
+              >
+                <option value={"Pendente"}>Pendente</option>
+                <option value={"Inciada"}>Inciada</option>
+                <option value={"Comprada"}>Comprada</option>
+              </Select>
               <div
                 style={{
                   display: "flex",

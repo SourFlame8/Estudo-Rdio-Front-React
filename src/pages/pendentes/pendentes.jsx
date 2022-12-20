@@ -15,7 +15,7 @@ import { NavLink } from "react-router-dom";
 import api from "../../services/api";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import ModalAdd from "../modal/modal";
+import ModalAdd from "../modal/add/ModalAddPendentes";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
@@ -48,7 +48,6 @@ function Pendentes() {
         <Table variant="simple">
           <Thead>
             <Tr>
-              <Th>Id</Th>
               <Th>Nome</Th>
               <Th>Artista</Th>
               <Th>Album</Th>
@@ -61,7 +60,6 @@ function Pendentes() {
           <Tbody>
             {musica?.map((d, i) => (
               <Tr key={i}>
-                <Td>{d?.id}</Td>
                 <Td>{d?.nome}</Td>
                 <Td>{d?.artista}</Td>
                 <Td>{d?.album}</Td>
