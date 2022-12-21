@@ -11,7 +11,6 @@ import Navbar from "./components/navbar/navbar"
 function AppRoutes() {
   return (
     <ChakraProvider>
-      <Navbar/>
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Home />} />
