@@ -17,6 +17,7 @@ import { Body } from "./style";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import ModalAddCompradas from "../modal/add/ModalAddCompradas";
+import ModalEditCompradas from "../modal/edit/ModalEditCompradas";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
@@ -62,7 +63,7 @@ function Compradas() {
                 <Td>{moment(d?.venc_licenca).format("DD - MM - YYYY")}</Td>
                 <Td>{d?.gravadora}</Td>
                 <Td>
-                  <EditIcon />
+                  <ModalEditCompradas />
                 </Td>
                 <Td>
                   <DeleteIcon />

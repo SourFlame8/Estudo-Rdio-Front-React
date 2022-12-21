@@ -16,6 +16,7 @@ import api from "../../services/api";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import ModalAddPendentes from "../modal/add/ModalAddPendentes";
+import ModalEditPendentes from "../modal/edit/ModalEditPendentes";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
@@ -66,9 +67,7 @@ function Pendentes() {
                 <Td>{d?.gravadora}</Td>
                 <Td>{d?.situacao_compra}</Td>
                 <Td>
-                  <Button>
-                    <EditIcon />
-                  </Button>
+                  <ModalEditPendentes />
                 </Td>
                 <Td>
                   <Button onClick={() => remover(d.id)}>
