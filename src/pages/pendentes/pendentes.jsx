@@ -15,8 +15,8 @@ import { NavLink } from "react-router-dom";
 import api from "../../services/api";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import ModalAddPendentes from "../modal/add/ModalAddPendentes";
-import ModalEditPendentes from "../modal/edit/ModalEditPendentes";
+import ModalAddPendentes from "../../components/modal/add/ModalAddPendentes";
+import ModalEditPendentes from "../../components/modal/edit/ModalEditPendentes";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
