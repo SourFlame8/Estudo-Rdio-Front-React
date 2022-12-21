@@ -18,6 +18,7 @@ import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import ModalAddCompradas from "../../components/modal/add/ModalAddCompradas";
 import ModalEditCompradas from "../../components/modal/edit/ModalEditCompradas";
+import Navbar from "../../components/navbar/navbar";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
@@ -36,67 +37,72 @@ function Compradas() {
   }
 
   return (
-    <Body>
-      <Text fontFamily={"Montserrat"} fontSize={30}>
-        Compradas
-      </Text>
-      <ModalAddCompradas />
-      <TableContainer
-        border={"1px solid black"}
-        borderRadius={"10px"}
-        marginBottom={".5rem"}
-        fontFamily={"Montserrat"}
-      >
-        <Table variant="simple">
-          <Thead>
-            <Tr>
-              <Th>Nome</Th>
-              <Th>Artista</Th>
-              <Th>Album</Th>
-              <Th>Licença Comprada</Th>
-              <Th>Vencimento da Licença</Th>
-              <Th>Gravadora</Th>
-              <Th />
-              <Th />
-            </Tr>
-          </Thead>
-          <Tbody>
-            {musica?.map((d, i) => (
-              <Tr key={i}>
-                <Td>{d?.nome}</Td>
-                <Td>{d?.artista}</Td>
-                <Td>{d?.album}</Td>
-                <Td>{moment(d?.lincenca_comprada).format("DD - MM - YYYY")}</Td>
-                <Td>{moment(d?.venc_licenca).format("DD - MM - YYYY")}</Td>
-                <Td>{d?.gravadora}</Td>
-                <Td>
-                  <ModalEditCompradas />
-                </Td>
-                <Td>
-                  <Button onClick={() => remover(d.id)}>
-                    <DeleteIcon />
-                  </Button>
-                </Td>
-              </Tr>
-            ))}
-          </Tbody>
-        </Table>
-      </TableContainer>
-      <Button
-        colorScheme={"blue"}
-        size={"lg"}
-        fontFamily={"Montserrat"}
-        leftIcon={<ArrowBackIcon />}
-      >
-        <NavLink
-          exact
-          to="/"
-          style={{ color: "white", textDecoration: "none" }}
+    <>
+    <Navbar pagina="compradas" />
+      <Body>
+        <Text fontFamily={"Montserrat"} fontSize={30}>
+          Compradas
+        </Text>
+        <ModalAddCompradas />
+        <TableContainer
+          border={"1px solid black"}
+          borderRadius={"10px"}
+          marginBottom={".5rem"}
+          fontFamily={"Montserrat"}
         >
-          Voltar
-        </NavLink>
-      </Button>
-    </Body>
+          <Table variant="simple">
+            <Thead>
+              <Tr>
+                <Th>Nome</Th>
+                <Th>Artista</Th>
+                <Th>Album</Th>
+                <Th>Licença Comprada</Th>
+                <Th>Vencimento da Licença</Th>
+                <Th>Gravadora</Th>
+                <Th />
+                <Th />
+              </Tr>
+            </Thead>
+            <Tbody>
+              {musica?.map((d, i) => (
+                <Tr key={i}>
+                  <Td>{d?.nome}</Td>
+                  <Td>{d?.artista}</Td>
+                  <Td>{d?.album}</Td>
+                  <Td>
+                    {moment(d?.lincenca_comprada).format("DD - MM - YYYY")}
+                  </Td>
+                  <Td>{moment(d?.venc_licenca).format("DD - MM - YYYY")}</Td>
+                  <Td>{d?.gravadora}</Td>
+                  <Td>
+                    <ModalEditCompradas />
+                  </Td>
+                  <Td>
+                    <Button onClick={() => remover(d.id)}>
+                      <DeleteIcon />
+                    </Button>
+                  </Td>
+                </Tr>
+              ))}
+            </Tbody>
+          </Table>
+        </TableContainer>
+        <Button
+          colorScheme={"blue"}
+          size={"lg"}
+          fontFamily={"Montserrat"}
+          leftIcon={<ArrowBackIcon />}
+        >
+          <NavLink
+            exact
+            to="/"
+            style={{ color: "white", textDecoration: "none" }}
+          >
+            Voltar
+          </NavLink>
+        </Button>
+      </Body>
+    </>
   );
 }
 

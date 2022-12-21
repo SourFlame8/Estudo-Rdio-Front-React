@@ -1,21 +1,20 @@
-import { Button, ButtonGroup } from "@chakra-ui/react";
+import { Button, ButtonGroup, Img } from "@chakra-ui/react";
 import React from "react";
+import teste from "../../assets/react.svg";
 
-function Navbar(pagina) {
-  switch (pagina) {
+function Navbar(props) {
+  switch (props.pagina) {
     case "home":
       return (
         <header
           style={{
             display: "flex",
-            justifyContent: "flex-end",
             marginTop: ".5rem",
+            marginRight: "1rem",
           }}
         >
-          <ButtonGroup variant="outline" spacing="6">
-            <Button colorScheme={"blue"} variant="ghost">
-              <a href="/">Home</a>
-            </Button>
+          <Img src={teste} alt="teste" />
+          <ButtonGroup variant="outline" spacing="6" direction="row" marginLeft={"85%"}>
             <Button colorScheme={"blue"} variant="ghost">
               <a href="/Compradas">Compradas</a>
             </Button>
@@ -32,9 +31,10 @@ function Navbar(pagina) {
             display: "flex",
             justifyContent: "flex-end",
             marginTop: ".5rem",
+            marginRight: ".5rem",
           }}
         >
-          <ButtonGroup variant="outline" spacing="6">
+          <ButtonGroup variant="outline" spacing="6" direction="row" marginLeft={"85%"}>
             <Button colorScheme={"blue"} variant="ghost">
               <a href="/">Home</a>
             </Button>
@@ -51,9 +51,10 @@ function Navbar(pagina) {
             display: "flex",
             justifyContent: "flex-end",
             marginTop: ".5rem",
+            marginRight: ".5rem",
           }}
         >
-          <ButtonGroup variant="outline" spacing="6">
+          <ButtonGroup variant="outline" spacing="6" direction="row" marginLeft={"85%"}>
             <Button colorScheme={"blue"} variant="ghost">
               <a href="/">Home</a>
             </Button>
@@ -70,9 +71,10 @@ function Navbar(pagina) {
             display: "flex",
             justifyContent: "flex-end",
             marginTop: ".5rem",
+            marginRight: ".5rem",
           }}
         >
-          <ButtonGroup variant="outline" spacing="6">
+          <ButtonGroup variant="outline" spacing="6" direction="row" marginLeft={"85%"}>
             <Button colorScheme={"blue"} variant="ghost">
               <a href="/">Home</a>
             </Button>
