@@ -5,11 +5,13 @@ import Compradas from "./pages/compradas/compradas";
 import Home from "./pages/home/home";
 import Pendentes from "./pages/pendentes/pendentes";
 import Teste from "./pages/teste/teste";
+import Navbar from "./components/navbar/navbar"
 // import theme from "./services/theme";
 
 function AppRoutes() {
   return (
     <ChakraProvider>
+      <Navbar/>
       <BrowserRouter>
         <Routes>
           <Route path={"/"} element={<Home />} />
