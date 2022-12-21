@@ -17,7 +17,7 @@ import React, { useState } from "react";
 import "@fontsource/montserrat";
 import api from "../../../services/api";
 
-function ModalAddPendentes() {
+function ModalAddCompradas() {
   const { isOpen, onOpen, onClose } = useDisclosure();
   const [name, setName] = useState("");
   const [artista, setArtista] = useState("");
@@ -27,6 +27,7 @@ function ModalAddPendentes() {
 
   function enviar(e) {
     e.preventDefault();
+
     const data = {
       nome: name,
       artista: artista,
@@ -36,7 +37,7 @@ function ModalAddPendentes() {
     };
 
     api
-      .post(`/Pendentes`, { data })
+      .post(`/Compradas`, { data })
       .then((response) => alert(response.data.response.sucess))
       .catch((error) => alert("Deu erro" + " " + error));
 
@@ -151,4 +152,4 @@ function ModalAddPendentes() {
   );
 }
 
-export default ModalAddPendentes;
+export default ModalAddCompradas;

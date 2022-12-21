@@ -15,7 +15,7 @@ import { NavLink } from "react-router-dom";
 import api from "../../services/api";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import ModalAdd from "../modal/add/ModalAddPendentes";
+import ModalAddPendentes from "../modal/add/ModalAddPendentes";
 
 function Pendentes() {
   const [musica, setMusica] = useState([]);
@@ -38,7 +38,7 @@ function Pendentes() {
       <Text fontFamily={"Montserrat"} fontSize={"30"}>
         Pendentes
       </Text>
-      <ModalAdd />
+      <ModalAddPendentes />
       <TableContainer
         border={"1px solid black"}
         borderRadius={"10px"}

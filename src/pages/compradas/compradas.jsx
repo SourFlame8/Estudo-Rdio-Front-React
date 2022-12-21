@@ -16,6 +16,7 @@ import api from "../../services/api";
 import { Body } from "./style";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
+import ModalAddCompradas from "../modal/add/ModalAddCompradas";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
@@ -31,15 +32,7 @@ function Compradas() {
       <Text fontFamily={"Montserrat"} fontSize={30}>
         Compradas
       </Text>
-      <Button
-        colorScheme={"blue"}
-        size={"lg"}
-        fontFamily={"Montserrat"}
-        leftIcon={<AddIcon />}
-        marginBottom={".5rem"}
-      >
-        Adicionar
-      </Button>
+      <ModalAddCompradas />
       <TableContainer
         border={"1px solid black"}
         borderRadius={"10px"}
