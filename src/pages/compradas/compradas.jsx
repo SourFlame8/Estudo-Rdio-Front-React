@@ -28,6 +28,13 @@ function Compradas() {
     });
   }, [musica]);
 
+  function remover(id) {
+    api
+      .delete(`/Compradas/${id}`)
+      .then((response) => alert(response.data.response.sucess))
+      .catch((error) => alert("Deu erro" + " " + error));
+  }
+
   return (
     <Body>
       <Text fontFamily={"Montserrat"} fontSize={30}>
@@ -66,7 +73,9 @@ function Compradas() {
                   <ModalEditCompradas />
                 </Td>
                 <Td>
-                  <DeleteIcon />
+                  <Button onClick={() => remover(d.id)}>
+                    <DeleteIcon />
+                  </Button>
                 </Td>
               </Tr>
             ))}
