@@ -16,8 +16,8 @@ import api from "../../services/api";
 import { Body } from "./style";
 import "@fontsource/montserrat";
 import { AddIcon, ArrowBackIcon, DeleteIcon, EditIcon } from "@chakra-ui/icons";
-import ModalAddCompradas from "../modal/add/ModalAddCompradas";
-import ModalEditCompradas from "../modal/edit/ModalEditCompradas";
+import ModalAddCompradas from "../../components/modal/add/ModalAddCompradas";
+import ModalEditCompradas from "../../components/modal/edit/ModalEditCompradas";
 
 function Compradas() {
   const [musica, setMusica] = useState([]);
