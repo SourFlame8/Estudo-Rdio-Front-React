@@ -1,6 +1,6 @@
 import { Button, ButtonGroup, Img } from "@chakra-ui/react";
 import React from "react";
-import teste from "../../assets/react.svg";
+// import teste from "../../assets/react.svg";
 
 function Navbar(props) {
   switch (props.pagina) {

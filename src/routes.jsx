@@ -6,6 +6,7 @@ import Home from "./pages/home/home";
 import Pendentes from "./pages/pendentes/pendentes";
 import Teste from "./pages/teste/teste";
 import Navbar from "./components/navbar/navbar"
+import Dev from "./pages/dev";
 // import theme from "./services/theme";
 
 function AppRoutes() {
@@ -17,6 +18,7 @@ function AppRoutes() {
           <Route path={"/Compradas"} element={<Compradas />} />
           <Route path={"/Pendentes"} element={<Pendentes />} />
           <Route path={"/Teste"} element={<Teste />} />
+          <Route path={"/Dev"} element={<Dev />} />
         </Routes>
       </BrowserRouter>
     </ChakraProvider>
